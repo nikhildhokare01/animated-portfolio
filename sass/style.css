@@ -1,278 +1,130 @@
-/* ===============================
-   RESET & GLOBAL
-================================ */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100vh;
-  background: linear-gradient(
-    -45deg,
-    #6C63FF,
-    #00E5FF,
-    #FF6A3D,
-    #8B5CF6
-  );
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(-45deg, #6c63ff, #00e5ff, #ff6a3d, #8b5cf6);
   background-size: 400% 400%;
   animation: gradientBG 18s ease infinite;
-  color: #1c1c1c;
 }
 
-/* Gradient animation */
+/* BACKGROUND ANIMATION */
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* ===============================
-   GLASS SECTIONS
-================================ */
-section,
-header,
-footer {
-  background: rgba(255, 255, 255, 0.88);
+/* GLASS SECTIONS */
+section, header, footer {
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(14px);
-  border-radius: 18px;
   margin: 20px;
-  padding: 40px;
+  border-radius: 16px;
+  padding: 60px 20px;
 }
 
-/* ===============================
-   HEADER / NAVBAR
-================================ */
+/* HEADER */
 .site-header {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #6C63FF;
+.nav-links ul {
+  display: none;
+  list-style: none;
 }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
+.nav-links.active ul {
+  display: block;
 }
 
 .nav-links a {
   text-decoration: none;
-  font-weight: 500;
-  color: #1c1c1c;
-  padding: 8px 14px;
-  border-radius: 8px;
-  transition: 0.3s ease;
+  color: #333;
+  padding: 10px;
+  display: block;
 }
 
-.nav-links a:hover {
-  background: linear-gradient(135deg, #6C63FF, #00E5FF);
-  color: #fff;
-}
-
-/* Mobile menu */
 .hamburger {
-  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
   cursor: pointer;
 }
 
-/* ===============================
-   HERO / BANNER
-================================ */
+/* DESKTOP NAV */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+  .nav-links ul {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+/* HERO */
 .banner {
-  min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 }
 
-.banner h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #0F1226;
+.name {
+  font-size: 48px;
 }
 
-.banner .designation {
+.designation {
+  font-size: 28px;
+  opacity: 0.8;
+}
+
+.tagline {
   margin-top: 10px;
-  font-size: 1.2rem;
-  color: #555;
 }
 
-.banner .tagline {
-  margin-top: 8px;
-  color: #6C63FF;
-  font-weight: 500;
-}
-
-/* ===============================
-   PROMO / ABOUT
-================================ */
-#about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-#about .about-container-left {
-  background: linear-gradient(135deg, #6C63FF, #8B5CF6);
-  color: #fff;
-  border-radius: 16px;
-  padding: 30px;
-}
-
-#about .about-container-left h4 {
-  color: #00E5FF;
-  margin-bottom: 10px;
-}
-
-#about .about-container-right {
-  background: #fff;
-  border-radius: 16px;
-  padding: 30px;
-}
-
-/* ===============================
-   SKILLS
-================================ */
-#skill {
-  background: linear-gradient(135deg, #0F1226, #1b1f4a);
-  color: #fff;
-}
-
-#skill h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-#skill .skills-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+/* SKILLS */
+.skill--content {
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
-#skill .item {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 25px;
-  border-radius: 14px;
-  text-align: center;
-  transition: 0.4s ease;
-}
-
-#skill .item h3 {
-  color: #00E5FF;
-  margin-bottom: 10px;
-}
-
-#skill .item:hover {
-  transform: translateY(-10px);
-  box-shadow:
-    0 20px 40px rgba(108,99,255,0.4),
-    0 0 30px rgba(0,229,255,0.25);
-}
-
-/* ===============================
-   SERVICES
-================================ */
-#service .service-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-
-#service .item {
-  background: #fff;
-  border-radius: 16px;
+.skill--content .item {
+  flex: 1;
   padding: 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6c63ff, #00e5ff);
+  color: white;
   text-align: center;
-  transition: 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
-#service .item h3 {
-  color: #6C63FF;
-  margin-bottom: 10px;
+.skill--content .item:hover {
+  transform: translateY(-8px) scale(1.05);
 }
 
-#service .item:hover {
-  background: linear-gradient(135deg, #6C63FF, #00E5FF);
-  color: #fff;
-  transform: translateY(-10px);
-}
-
-/* ===============================
-   PORTFOLIO
-================================ */
-#portfolio {
-  background: linear-gradient(135deg, #0F1226, #000);
-  color: #fff;
-}
-
-#portfolio .portfolio-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-#portfolio .item {
-  background: #000;
-  border-radius: 14px;
-  overflow: hidden;
-  transition: 0.4s ease;
-}
-
-#portfolio .item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-}
-
-/* ===============================
-   CONTACT
-================================ */
-#contact {
-  text-align: center;
-}
-
-/* ===============================
-   FOOTER
-================================ */
+/* FOOTER */
 .site-footer {
   text-align: center;
 }
 
-.site-footer p {
-  color: #555;
-}
-
-/* ===============================
-   RESPONSIVE
-================================ */
-@media (max-width: 768px) {
-  #about {
-    grid-template-columns: 1fr;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-  }
+/* CURSOR GLOW */
+.cursor-glow {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(108,99,255,0.5), transparent 60%);
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 }
