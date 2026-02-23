@@ -1,17 +1,17 @@
 // Mobile menu
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
 
-hamburger.addEventListener("click", () => {
+menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
-// Scroll reveal animation
+// Scroll reveal
 const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
-  const windowHeight = window.innerHeight;
   reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
     const elementTop = el.getBoundingClientRect().top;
     if (elementTop < windowHeight - 100) {
       el.classList.add("active");
