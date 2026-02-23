@@ -144,3 +144,8 @@ body {
     padding: 100px 8%;
   }
 }
+/* FIX: Make hero text visible immediately */
+.hero .reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
