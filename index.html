@@ -1,210 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Nikhil Dhokare | Animation Student Portfolio</title>
 
-  <link rel="shortcut icon" href="favicon.ico">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Main CSS -->
   <link rel="stylesheet" href="sass/style.css">
 
-  <!-- AOS -->
+  <!-- AOS (Scroll Animations) -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- Social Preview -->
+  <meta property="og:title" content="Nikhil Dhokare | Animation Student Portfolio">
+  <meta property="og:description" content="Creative portfolio showcasing animation and design practice.">
+  <meta property="og:type" content="website">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="site-header">
-  <div class="nav-logo" data-aos="fade-down">
-    <a href="index.html">
-      <img src="assets/images/logo.png" alt="Nikhil Dhokare Logo">
-    </a>
-  </div>
+  <!-- ================= NAVBAR ================= -->
+  <header class="site-header">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="assets/images/logo.png" alt="Logo">
+      </a>
+    </div>
 
-  <button class="hamburger">
-    <img src="assets/images/menu.png" alt="menu">
-  </button>
+    <button class="hamburger">
+      <img src="assets/images/menu.png" alt="Menu">
+    </button>
 
-  <div class="nav-links">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skill">Skills</a></li>
-      <li><a href="#service">Focus</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skill">Skills</a></li>
+        <li><a href="#service">Focus</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!-- HERO -->
-<section class="banner">
-  <div class="banner--content">
-    <h3 class="name" data-aos="fade-up" data-aos-delay="0">Nikhil Dhokare</h3>
-    <h1 class="designation" data-aos="fade-up" data-aos-delay="150">
-      Animation Student & Visual Designer
-    </h1>
-    <p class="tagline" data-aos="fade-up" data-aos-delay="300">
-      Passionate about animation, motion graphics, and visual storytelling.
-    </p>
-  </div>
-</section>
+  <!-- ================= HERO ================= -->
+  <section class="banner">
+    <div class="banner--content" data-aos="fade-up">
+      <h3 class="name">Nikhil Dhokare</h3>
+      <h1 class="designation">Animation Student & Visual Designer</h1>
+      <p class="tagline">
+        Exploring animation, motion graphics, and visual storytelling.
+      </p>
+    </div>
+  </section>
 
-<!-- PROMO -->
-<section class="promo">
-  <div class="content" data-aos="zoom-in">
-    <h2>Turning <span class="bold">ideas</span> into motion<span class="orange">.</span></h2>
-    <p>Learning, experimenting, and growing through animation and design.</p>
-  </div>
-</section>
+  <!-- ================= PROMO ================= -->
+  <section class="promo">
+    <div class="content" data-aos="fade-up">
+      <h2>Turning <span class="bold">ideas</span> into motion<span class="orange">.</span></h2>
+      <p>Learning • Experimenting • Growing</p>
+    </div>
+  </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="content">
-    <h2 data-aos="fade-up">About Me</h2>
-
-    <div class="about-container">
-      <div class="about-container-left" data-aos="fade-right">
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="content about-container">
+      <div class="about-left" data-aos="fade-right">
+        <h2>About Me</h2>
         <p>
-          I am a beginner animation student who enjoys creating visuals and 
-          learning how stories come alive through motion.
+          I am a beginner animation student who loves experimenting with visuals
+          and understanding how stories come alive through motion.
         </p>
 
         <ul>
-          <li>Learning 2D & 3D animation fundamentals</li>
-          <li>Interested in motion graphics</li>
-          <li>Focused on daily creative practice</li>
+          <li>Learning 2D & 3D animation basics</li>
+          <li>Practicing motion graphics & design</li>
+          <li>Building consistency through projects</li>
         </ul>
-
-        <p>
-          Every project teaches me something new about timing, movement,
-          and storytelling.
-        </p>
 
         <h4>My Goal</h4>
         <p>
-          To become a skilled animator through consistent learning and practice.
+          To grow as an animator by learning continuously and creating meaningful work.
         </p>
       </div>
 
-      <div class="about-container-right" data-aos="fade-left">
-        <img src="assets/images/headshot.jpg" alt="Nikhil Dhokare">
+      <div class="about-right" data-aos="fade-left">
+        <img src="assets/images/headshot.jpg" alt="Portrait">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SKILLS -->
-<section id="skill">
-  <div class="content skill--content">
-    <div class="left" data-aos="fade-up">
-      <h2>Skills & Tools</h2>
-      <p>Building a strong foundation in design and animation tools.</p>
-    </div>
-
-    <div class="right">
-      <div class="item" data-aos="zoom-in" data-aos-delay="0">
-        <img src="assets/images/photoshop.png">
-        <h3>Adobe Photoshop</h3>
-        <p>Image editing & design basics.</p>
+  <!-- ================= SKILLS ================= -->
+  <section id="skill">
+    <div class="content skill--content">
+      <div class="left" data-aos="fade-up">
+        <h2>Skills & Tools</h2>
+        <p>Software and skills I am currently learning.</p>
       </div>
 
-      <div class="item" data-aos="zoom-in" data-aos-delay="150">
-        <img src="assets/images/illustrator.png">
-        <h3>Adobe Illustrator</h3>
-        <p>Vector design & illustrations.</p>
+      <div class="right">
+        <div class="item" data-aos="flip-left">
+          <img src="assets/images/photoshop.png" alt="">
+          <h3>Photoshop</h3>
+          <p>Design, editing & layouts</p>
+        </div>
+
+        <div class="item" data-aos="flip-right">
+          <img src="assets/images/illustrator.png" alt="">
+          <h3>Illustrator</h3>
+          <p>Vector & illustration</p>
+        </div>
+
+        <div class="item" data-aos="flip-left">
+          <img src="assets/images/indesign.png" alt="">
+          <h3>InDesign</h3>
+          <p>Layout & typography</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="service">
+    <h2 class="center">What I’m Exploring</h2>
+
+    <div class="content service--content" data-aos="fade-up">
+      <div class="item">
+        <h3>Animation</h3>
+        <p>Motion, timing & principles</p>
       </div>
 
-      <div class="item" data-aos="zoom-in" data-aos-delay="300">
-        <img src="assets/images/indesign.png">
-        <h3>Adobe InDesign</h3>
-        <p>Layouts & typography.</p>
+      <div class="item">
+        <h3>Graphic Design</h3>
+        <p>Posters, visuals & layouts</p>
+      </div>
+
+      <div class="item">
+        <h3>Experiments</h3>
+        <p>Creative ideas & styles</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOCUS -->
-<section id="service">
-  <h2 data-aos="fade-up">What I’m Exploring</h2>
+  <!-- ================= PORTFOLIO ================= -->
+  <section id="portfolio">
+    <h2 class="center">Practice Projects</h2>
 
-  <div class="content service--content">
-    <div class="item" data-aos="flip-left">
-      <h3>Animation Basics</h3>
-      <img src="assets/images/3d-image-design.png">
-      <p>Motion, timing, and principles.</p>
+    <div class="content portfolio--content">
+      <div class="item"><img src="assets/images/project-one.jpg" alt=""></div>
+      <div class="item"><img src="assets/images/project-two.jpg" alt=""></div>
+      <div class="item"><img src="assets/images/project-three.png" alt=""></div>
+      <div class="item"><img src="assets/images/project-four.jpg" alt=""></div>
     </div>
+  </section>
 
-    <div class="item" data-aos="flip-up">
-      <h3>Graphic Design</h3>
-      <img src="assets/images/logo-design.png">
-      <p>Posters & digital creatives.</p>
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="content">
+      <h2 class="center">Contact Me</h2>
+      <p class="center">Open to learning, collaboration & opportunities</p>
+
+      <address class="center">
+        <p>Email: <a href="mailto:nikhil.dhokare7@gmail.com">nikhil.dhokare7@gmail.com</a></p>
+        <p>Phone: <a href="tel:+919421920855">+91 9421920855</a></p>
+        <p>Pune, India</p>
+      </address>
     </div>
+  </section>
 
-    <div class="item" data-aos="flip-right">
-      <h3>Creative Experiments</h3>
-      <img src="assets/images/packaging-design.png">
-      <p>Trying styles & concepts.</p>
-    </div>
-  </div>
-</section>
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Nikhil Dhokare. All rights reserved.</p>
+  </footer>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <h2 class="center" data-aos="fade-up">Portfolio – Practice Work</h2>
-
-  <div class="content portfolio--content">
-    <div class="item" data-aos="fade-up"><img src="assets/images/project-one.jpg"></div>
-    <div class="item" data-aos="fade-up" data-aos-delay="100"><img src="assets/images/project-two.jpg"></div>
-    <div class="item" data-aos="fade-up" data-aos-delay="200"><img src="assets/images/project-three.png"></div>
-    <div class="item" data-aos="fade-up" data-aos-delay="300"><img src="assets/images/project-four.jpg"></div>
-    <div class="item" data-aos="fade-up" data-aos-delay="400"><img src="assets/images/project-five.jpg"></div>
-    <div class="item" data-aos="fade-up" data-aos-delay="500"><img src="assets/images/project-six.jpg"></div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="content" data-aos="zoom-in">
-    <h2 class="center">Contact Me</h2>
-    <p class="center contact-detail">
-      Open to learning opportunities and collaborations.
-    </p>
-
-    <address>
-      <p>Email: <a href="mailto:nikhil.dhokare7@gmail.com">nikhil.dhokare7@gmail.com</a></p>
-      <p>Phone: <a href="tel:+919421920855">+91 9421920855</a></p>
-      <p>Pune, India</p>
-    </address>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="content">
-    <p>Beginner animator learning motion & storytelling.</p>
-    <p>&copy; 2026 Nikhil Dhokare</p>
-  </div>
-</footer>
-
-<!-- SCRIPTS -->
-<script src="js/script.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000,
-    easing: 'ease-in-out',
-    once: true,
-    offset: 80
-  });
-</script>
+  <!-- JS -->
+  <script src="js/script.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 900 });
+  </script>
 
 </body>
 </html>
