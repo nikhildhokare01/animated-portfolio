@@ -148,3 +148,42 @@ section {
     gap: 15px;
   }
 }
+/* ===== IMAGE SIZE FIXES ===== */
+
+/* Global image safety */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Navbar logo */
+.nav-logo img {
+  max-width: 220px;
+  height: auto;
+}
+
+/* Skills icons */
+.skill--content .item img {
+  max-width: 80px;
+  margin: 0 auto 15px;
+}
+
+/* Services icons */
+.service--content .item img {
+  max-width: 120px;
+  margin: 0 auto 20px;
+}
+
+/* Portfolio images */
+.portfolio--content img {
+  max-height: 220px;
+  object-fit: cover;
+}
+
+/* About section image */
+.about-container-right img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
