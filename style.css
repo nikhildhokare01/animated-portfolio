@@ -233,3 +233,17 @@ img {
   display: block;
   height: auto;
 }
+/* ===== HEADER LOGO SIZE FIX (FINAL) ===== */
+
+.site-header .nav-logo img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+
+/* Larger screens – original behavior */
+@media screen and (min-width: 768px) {
+  .site-header .nav-logo img {
+    max-width: 314px;
+  }
+}
