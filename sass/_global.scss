@@ -44,3 +44,71 @@ img {
 .center {
   text-align: center;
 }
+/* =========================
+   GLOBAL ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation utility classes */
+.animate {
+  opacity: 0;
+}
+
+.animate.show.fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate.show.fade-left {
+  animation: fadeLeft 0.8s ease-out forwards;
+}
+
+.animate.show.fade-right {
+  animation: fadeRight 0.8s ease-out forwards;
+}
+
+.animate.show.scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
