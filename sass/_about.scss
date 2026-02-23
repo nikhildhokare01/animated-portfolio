@@ -35,3 +35,7 @@
     }
   }
 }
+.about-text,
+.about-image {
+  @extend .animate;
+}
