@@ -187,3 +187,49 @@ img {
   max-height: 400px;
   object-fit: cover;
 }
+/* ===============================
+   RESTORE ORIGINAL IMAGE SIZES
+   (MATCHES YOUR FIRST CODE)
+================================ */
+
+/* About section headshot — ORIGINAL BEHAVIOR */
+#about .about-container-right img {
+  max-width: 100%;
+  height: auto;
+  align-self: flex-start;
+}
+
+/* On large screens it stretches vertically like before */
+@media screen and (min-width: 1200px) {
+  #about .about-container-right img {
+    align-self: stretch;
+  }
+}
+
+/* Skills icons — EXACT ORIGINAL SIZE */
+#skill .skill--content .right .item img {
+  max-width: 100px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Service section images — ORIGINAL */
+#service .service--content .item img {
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Portfolio images — ORIGINAL */
+#portfolio .portfolio--content .item img {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+/* Safety: prevent accidental full-screen images */
+img {
+  display: block;
+  height: auto;
+}
