@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nikhil Dhokare | Animation Portfolio</title>
 
-  <!-- Fonts -->
+  <title>Nikhil Dhokare | Animation Student Portfolio</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;700&family=Roboto+Condensed&display=swap" rel="stylesheet">
 
-  <!-- MAIN CSS (ROOT) -->
+  <!-- MAIN CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 </head>
 
 <body>
@@ -23,24 +24,24 @@
     <img src="assets/images/logo.png" alt="Logo">
   </div>
 
-  <div class="nav-links">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skill">Skills</a></li>
-      <li><a href="#service">Focus</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#journey">Journey</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skill">Skills</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
 <section class="banner">
-  <div class="banner--content" data-aos="fade-up">
+  <div class="banner-content" data-aos="fade-up">
     <h3 class="name">Nikhil Dhokare</h3>
     <h1 class="designation neon-text">Animation Student & Visual Designer</h1>
-    <p class="tagline">Exploring motion, design & storytelling</p>
+    <p class="tagline">
+      Passionate about animation, motion graphics, and visual storytelling.
+      Exploring ideas, movement, and creativity through continuous practice.
+    </p>
   </div>
 </section>
 
@@ -50,17 +51,28 @@
     <h2 data-aos="fade-right">About Me</h2>
 
     <div class="about-container">
-      <div class="about-container-left" data-aos="fade-up">
-        <p>I’m an animation student focused on building strong fundamentals.</p>
-        <ul>
-          <li>2D & 3D basics</li>
-          <li>Motion graphics</li>
-          <li>Visual storytelling</li>
-        </ul>
+      <div class="about-text" data-aos="fade-up">
+        <p>
+          I am a beginner animation student driven by curiosity and a deep interest
+          in how visuals communicate emotions and stories. I enjoy experimenting
+          with motion, composition, and design to understand how small movements
+          can create powerful impact.
+        </p>
+
+        <p>
+          My learning journey focuses on strong fundamentals — timing, spacing,
+          visual balance, and storytelling. I believe consistency and exploration
+          are the keys to growth in animation.
+        </p>
+
+        <p>
+          Every project I create is a step forward, helping me understand not just
+          software tools, but the artistic thinking behind animation and design.
+        </p>
       </div>
 
-      <div class="about-container-right" data-aos="fade-left">
-        <img src="assets/images/headshot.jpg" alt="Headshot">
+      <div class="about-image" data-aos="fade-left">
+        <img src="assets/images/headshot.jpg" alt="Portrait">
       </div>
     </div>
   </div>
@@ -68,26 +80,26 @@
 
 <!-- SKILLS -->
 <section id="skill">
-  <div class="content skill--content">
-    <div class="left" data-aos="fade-right">
-      <h2>Tools I Use</h2>
-      <p>Learning industry tools step by step.</p>
-    </div>
+  <div class="content">
+    <h2 data-aos="fade-right">Skills & Tools</h2>
 
-    <div class="right">
-      <div class="item neon-card" data-aos="flip-left">
+    <div class="skills-grid">
+      <div class="skill-card neon-hover" data-aos="flip-left">
         <img src="assets/images/photoshop.png">
-        <h3>Photoshop</h3>
+        <h3>Adobe Photoshop</h3>
+        <p>Image editing, layouts, and visual design basics.</p>
       </div>
 
-      <div class="item neon-card" data-aos="flip-left">
+      <div class="skill-card neon-hover" data-aos="flip-left">
         <img src="assets/images/illustrator.png">
-        <h3>Illustrator</h3>
+        <h3>Adobe Illustrator</h3>
+        <p>Vector illustrations, icons, and creative assets.</p>
       </div>
 
-      <div class="item neon-card" data-aos="flip-left">
+      <div class="skill-card neon-hover" data-aos="flip-left">
         <img src="assets/images/indesign.png">
-        <h3>InDesign</h3>
+        <h3>Adobe InDesign</h3>
+        <p>Typography, layout structure, and composition.</p>
       </div>
     </div>
   </div>
@@ -95,23 +107,41 @@
 
 <!-- PORTFOLIO -->
 <section id="portfolio">
-  <h2 class="center neon-text">Practice Projects</h2>
-  <div class="content portfolio--content">
-    <div class="item glow" data-aos="zoom-in"><img src="assets/images/project-one.jpg"></div>
-    <div class="item glow" data-aos="zoom-in"><img src="assets/images/project-two.jpg"></div>
-    <div class="item glow" data-aos="zoom-in"><img src="assets/images/project-three.png"></div>
-    <div class="item glow" data-aos="zoom-in"><img src="assets/images/project-four.jpg"></div>
+  <div class="content">
+    <h2 class="center neon-text">Practice Projects</h2>
+
+    <div class="portfolio-grid">
+      <div class="project neon-hover" data-aos="zoom-in">
+        <img src="assets/images/project-one.jpg">
+      </div>
+      <div class="project neon-hover" data-aos="zoom-in">
+        <img src="assets/images/project-two.jpg">
+      </div>
+      <div class="project neon-hover" data-aos="zoom-in">
+        <img src="assets/images/project-three.png">
+      </div>
+      <div class="project neon-hover" data-aos="zoom-in">
+        <img src="assets/images/project-four.jpg">
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- JOURNEY (NEW SECTION – MAKES SITE LONGER & INTERESTING) -->
+<!-- JOURNEY (ANIMATED TIMELINE) -->
 <section id="journey">
   <div class="content">
     <h2 data-aos="fade-right">My Learning Journey</h2>
+
     <div class="timeline">
-      <div class="step" data-aos="fade-up">Started with design basics</div>
-      <div class="step" data-aos="fade-up">Explored motion principles</div>
-      <div class="step" data-aos="fade-up">Practicing animation daily</div>
+      <div class="timeline-item" data-aos="fade-up">
+        Started with basic design principles and visual observation.
+      </div>
+      <div class="timeline-item" data-aos="fade-up">
+        Learned fundamentals of animation and motion principles.
+      </div>
+      <div class="timeline-item" data-aos="fade-up">
+        Practicing projects to improve timing, creativity, and storytelling.
+      </div>
     </div>
   </div>
 </section>
@@ -120,17 +150,22 @@
 <section id="contact">
   <div class="content center">
     <h2>Contact</h2>
-    <p>Email: hello@example.com</p>
+    <p>Open to learning opportunities and creative collaborations.</p>
+    <p>Email: nikhil.dhokare7@gmail.com</p>
     <p>Pune, India</p>
   </div>
 </section>
 
 <footer class="site-footer">
-  <p>© 2026 Nikhil Dhokare</p>
+  <p>© 2026 Nikhil Dhokare. All rights reserved.</p>
 </footer>
 
+<!-- JS -->
 <script src="script.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>AOS.init({ once: true, duration: 1000 });</script>
+<script>
+  AOS.init({ once: true, duration: 1000 });
+</script>
+
 </body>
 </html>
