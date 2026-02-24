@@ -1,135 +1,114 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --bg-gradient: linear-gradient(to bottom right, #1e1e1f 0%, #121212 100%);
+  --card-bg: #1e1e1f;
+  --border-color: #383838;
+  --accent-gold: #ffdb70; /* The highlight color from your ref image */
+  --text-white: #fafafa;
+  --text-light: #d6d6d6;
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
+  background: #121212;
   font-family: 'Oxygen', sans-serif;
-  background: radial-gradient(circle at top, #0b1026, #05070f);
-  color: #e6e6ff;
+  color: var(--text-white);
+  padding: 60px 0;
 }
 
-/* NAV */
-.site-header {
+.main-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background: rgba(5,7,15,0.9);
-}
-
-.nav-logo img {
-  max-width: 200px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   gap: 25px;
-}
-
-.nav-links a {
-  color: #9aa7ff;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.nav-links a:hover {
-  color: #00f6ff;
-}
-
-/* HERO */
-.banner {
-  padding: 140px 20px;
-  text-align: center;
-}
-
-.neon-text {
-  color: #00f6ff;
-  text-shadow: 0 0 15px #00f6ff, 0 0 30px #00f6ff66;
-}
-
-/* SECTIONS */
-section {
-  padding: 100px 20px;
-}
-
-.content {
   max-width: 1200px;
   margin: auto;
 }
 
-/* ABOUT */
-.about-container {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.about-image img {
-  max-width: 320px;
-  border-radius: 12px;
-}
-
-/* SKILLS */
-.skills-grid {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.skill-card {
-  flex: 1;
+/* SIDEBAR STYLING */
+.sidebar {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
   padding: 30px;
-  border: 2px solid #00f6ff;
+  position: sticky;
+  top: 60px;
+  width: 280px;
   text-align: center;
-  box-shadow: 0 0 20px #00f6ff44;
 }
 
-.skill-card img {
-  max-width: 80px;
+.avatar-box {
+  background: #383838;
+  border-radius: 20px;
   margin-bottom: 15px;
 }
+.avatar-box img { width: 100%; border-radius: 20px; }
 
-/* PORTFOLIO */
-.portfolio-grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.project {
-  flex: 1 1 50%;
-}
-
-.project img {
-  width: 100%;
-}
-
-/* NEON HOVER (FEATURE 1) */
-.neon-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.neon-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 30px #00f6ff;
-}
-
-/* TIMELINE (FEATURE 2) */
-.timeline {
-  margin-top: 40px;
-}
-
-.timeline-item {
-  margin: 25px 0;
-  padding-left: 20px;
-  border-left: 3px solid #00f6ff;
-}
-
-/* FOOTER */
-.site-footer {
-  text-align: center;
+/* CONTENT AREA STYLING */
+.main-content {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  flex: 1;
   padding: 30px;
-  background: #05070f;
+  position: relative;
 }
+
+/* TOP NAV (Inside the card) */
+.navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #2b2b2c;
+  border: 1px solid var(--border-color);
+  border-radius: 0 20px;
+  padding: 15px 30px;
+}
+.navbar-list { display: flex; gap: 20px; list-style: none; }
+.navbar-link { color: var(--text-light); text-decoration: none; font-size: 14px; }
+.navbar-link:hover { color: var(--accent-gold); }
+
+/* BENTO CARDS */
+.service-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.service-item {
+  background: linear-gradient(to bottom right, #2b2b2c 0%, #1e1e1f 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+/* THE SPRING ANIMATION */
+.spring-card {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.spring-card:hover {
+  transform: scale(1.03) translateY(-5px);
+  border-color: var(--accent-gold);
+}
+
+.h2.article-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 5px;
+  background: var(--accent-gold);
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+.project-item img { width: 100%; border-radius: 12px; }
