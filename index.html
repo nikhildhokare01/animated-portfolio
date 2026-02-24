@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nikhil Dhokare | Creative Portfolio</title>
+  <title>Nikhil Dhokare | Creative Portfolio 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    /* RESET & CORE STYLES */
     :root {
       --bg-main: #121212;
       --card-bg: #1e1e1f;
@@ -34,7 +33,7 @@
       align-items: flex-start;
     }
 
-    /* SIDEBAR (LEFT) */
+    /* SIDEBAR */
     .sidebar {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -46,14 +45,8 @@
       text-align: center;
     }
 
-    .avatar-box {
-      background: #383838;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
+    .avatar-box { background: #383838; border-radius: 20px; margin-bottom: 20px; overflow: hidden; }
     .avatar-box img { width: 100%; display: block; }
-
     .name { font-size: 20px; margin-bottom: 10px; }
     .badge { background: #2b2b2c; font-size: 11px; padding: 5px 12px; border-radius: 8px; color: var(--gold); }
 
@@ -61,7 +54,7 @@
     .contact-item { margin-bottom: 15px; font-size: 13px; display: flex; align-items: center; gap: 10px; }
     .contact-icon { background: #2b2b2c; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--gold); }
 
-    /* MAIN CONTENT (RIGHT) */
+    /* MAIN CONTENT */
     .main-content {
       flex: 1;
       background: var(--card-bg);
@@ -78,24 +71,22 @@
       border: 1px solid var(--border);
       border-radius: 0 20px 0 20px;
       padding: 15px 25px;
+      z-index: 100;
     }
     .nav-bar ul { display: flex; gap: 20px; list-style: none; }
-    .nav-bar a { text-decoration: none; color: var(--text-dim); font-size: 14px; font-weight: 600; transition: 0.3s; }
-    .nav-bar a:hover { color: var(--gold); }
+    .nav-bar a { text-decoration: none; color: var(--text-dim); font-size: 13px; font-weight: 600; transition: 0.3s; }
+    .nav-bar a:hover, .nav-bar a.active { color: var(--gold); }
 
-    .header-title { font-size: 32px; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+    .content-section { display: none; animation: fadeIn 0.4s ease forwards; }
+    .content-section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .header-title { font-size: 32px; margin-bottom: 25px; position: relative; padding-bottom: 10px; }
     .header-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 40px; height: 5px; background: var(--gold); border-radius: 3px; }
 
-    /* WHAT I'M DOING SECTION */
-    .section-title { margin: 35px 0 25px; font-size: 24px; }
-    .doing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      list-style: none;
-    }
-
-    .doing-card {
+    /* GRIDS */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; list-style: none; margin: 25px 0; }
+    .card {
       background: linear-gradient(to bottom right, #2b2b2c 0%, #1e1e1f 100%);
       border: 1px solid var(--border);
       border-radius: 15px;
@@ -104,17 +95,18 @@
       gap: 15px;
       transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-
-    .doing-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .card:hover { transform: translateY(-5px); border-color: var(--gold); }
     .icon-big { font-size: 30px; }
-    .doing-info h4 { margin-bottom: 8px; font-size: 18px; }
-    .doing-info p { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
 
-    /* MOBILE RESPONSIVE */
+    /* TIMELINE */
+    .timeline { border-left: 1px solid var(--border); margin-left: 10px; padding-left: 20px; list-style: none; }
+    .timeline-item { position: relative; margin-bottom: 30px; }
+    .timeline-item::before { content: ""; position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 0 4px #2b2b2c; }
+
     @media (max-width: 850px) {
       .container { flex-direction: column; }
-      .sidebar { width: 100%; position: static; margin-bottom: 20px; }
-      .doing-grid { grid-template-columns: 1fr; }
+      .sidebar { width: 100%; position: static; }
+      .grid { grid-template-columns: 1fr; }
       .nav-bar { position: fixed; bottom: 0; top: auto; width: 100%; left: 0; border-radius: 20px 20px 0 0; justify-content: center; display: flex; }
     }
   </style>
@@ -123,12 +115,9 @@
 
 <div class="container">
   <aside class="sidebar">
-    <div class="avatar-box">
-      <img src="assets/images/headshot.jpg" alt="Nikhil">
-    </div>
+    <div class="avatar-box"><img src="assets/images/headshot.jpg" alt="Nikhil"></div>
     <h1 class="name">Nikhil Dhokare</h1>
-    <span class="badge">Animation & Web</span>
-
+    <span class="badge">Creative Director</span>
     <ul class="contact-list">
       <li class="contact-item"><div class="contact-icon">✉️</div><div>Email<br><strong>nikhil.dhokare7@gmail.com</strong></div></li>
       <li class="contact-item"><div class="contact-icon">📍</div><div>Location<br><strong>Pune, India</strong></div></li>
@@ -138,59 +127,105 @@
   <main class="main-content">
     <nav class="nav-bar">
       <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Resume</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#about" class="nav-link active">About</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
 
-    <section>
+    <section id="about" class="content-section active">
       <h2 class="header-title">About Me</h2>
-      <p style="color: var(--text-dim); margin-bottom: 20px;">
+      <p style="color: var(--text-dim); margin-bottom: 25px;">
         I am a beginner animation student driven by curiosity and a deep interest in how visuals communicate emotions. I focus on timing, spacing, and storytelling.
       </p>
 
-      <h3 class="section-title">What I'm Doing</h3>
-      <div class="doing-grid">
-        
-        <div class="doing-card">
+      <h3 style="margin-bottom: 20px;">What I'm Doing</h3>
+      <div class="grid">
+        <div class="card">
           <div class="icon-big">🎨</div>
-          <div class="doing-info">
-            <h4>Graphic Design</h4>
-            <p>Creating professional visual assets, logos, and high-quality designs using Adobe Creative Cloud.</p>
-          </div>
+          <div><h4>Graphic Design</h4><p style="font-size: 13px; color: var(--text-dim);">Visual assets and high-quality designs using Adobe CC.</p></div>
         </div>
-
-        <div class="doing-card">
+        <div class="card">
           <div class="icon-big">💻</div>
-          <div class="doing-info">
-            <h4>Developer</h4>
-            <p>Building functional and user-friendly websites using React, Vite, and GitHub Pages.</p>
-          </div>
+          <div><h4>Developer</h4><p style="font-size: 13px; color: var(--text-dim);">Building functional websites with React and Vite.</p></div>
         </div>
-
-        <div class="doing-card">
+        <div class="card">
           <div class="icon-big">🎬</div>
-          <div class="doing-info">
-            <h4>Content Creator</h4>
-            <p>Working on stop-motion short films and visual storytelling projects to engage audiences.</p>
-          </div>
+          <div><h4>Content Creator</h4><p style="font-size: 13px; color: var(--text-dim);">Working on stop-motion short films and storytelling.</p></div>
         </div>
-
-        <div class="doing-card">
+        <div class="card">
           <div class="icon-big">🎮</div>
-          <div class="doing-info">
-            <h4>Gamer</h4>
-            <p>Competitive spirit inspired by Faker, focusing on strategy and quick reflexes in the digital arena.</p>
-          </div>
+          <div><h4>Gamer</h4><p style="font-size: 13px; color: var(--text-dim);">Strategy and reflexes inspired by competitive gaming.</p></div>
         </div>
-
       </div>
     </section>
+
+    <section id="resume" class="content-section">
+      <h2 class="header-title">Resume</h2>
+      
+      <h3 style="margin: 20px 0;"><span style="color: var(--gold);">🎓</span> Education</h3>
+      <ul class="timeline">
+        <li class="timeline-item"><h4>Animation Student</h4><span>2025 — Present</span><p style="color: var(--text-dim);">Focusing on animation fundamentals, timing, and spacing.</p></li>
+        <li class="timeline-item"><h4>Visual Design Course</h4><span>2024 — 2025</span><p style="color: var(--text-dim);">Learning composition, color theory, and digital layout.</p></li>
+      </ul>
+
+      <h3 style="margin: 20px 0;"><span style="color: var(--gold);">🛠️</span> My Skills</h3>
+      <div class="grid">
+        <div class="card"><h4>Adobe Tools</h4><p style="font-size: 13px;">Photoshop, Illustrator, InDesign.</p></div>
+        <div class="card"><h4>Development</h4><p style="font-size: 13px;">HTML, CSS, React, and Git.</p></div>
+        <div class="card"><h4>Tech/Hardware</h4><p style="font-size: 13px;">Mobile optimization (Moto G96) and coding environments.</p></div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="content-section">
+      <h2 class="header-title">Portfolio</h2>
+      
+      <h3 style="margin-bottom: 15px;">Stop-Motion Lab</h3>
+      <div class="card" style="margin-bottom: 30px;">
+        <p>Current Project: <strong>Stop-Motion Short Film</strong>. Focus on frame-by-frame movement and set design.</p>
+      </div>
+
+      <h3 style="margin-bottom: 15px;">Practice Projects</h3>
+      <div class="grid">
+        <div class="card" style="display: block; padding: 10px;"><img src="assets/images/project-one.jpg" style="width: 100%; border-radius: 10px;"></div>
+        <div class="card" style="display: block; padding: 10px;"><img src="assets/images/project-two.jpg" style="width: 100%; border-radius: 10px;"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="content-section">
+      <h2 class="header-title">Contact</h2>
+      <p style="margin-bottom: 20px;">Open to learning opportunities and creative collaborations.</p>
+      <div class="card">
+        <p>Reach out at: <strong>nikhil.dhokare7@gmail.com</strong><br>Location: Pune, Maharashtra, India.</p>
+      </div>
+    </section>
+
   </main>
 </div>
+
+<script>
+  // Simple Page Switching Logic
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.content-section');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+
+      // Reset Links
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+
+      // Show Section
+      sections.forEach(s => {
+        s.classList.remove('active');
+        if (s.id === targetId) s.classList.add('active');
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
