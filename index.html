@@ -1,16 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikhil Dhokare | Animation Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #121212;
+      --card-bg: #1e1e1f;
+      --border-color: #383838;
+      --accent-gold: #ffdb70;
+      --text-white: #fafafa;
+      --text-muted: #d6d6d6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-color);
+      font-family: 'Oxygen', sans-serif;
+      color: var(--text-white);
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .main-container {
+      display: flex;
+      gap: 25px;
+      max-width: 1200px;
+      width: 100%;
+      align-items: flex-start;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 30px;
+      width: 300px;
+      position: sticky;
+      top: 60px;
+      text-align: center;
+    }
+
+    .avatar-box {
+      background: #383838;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .avatar-box img { width: 100%; display: block; }
+
+    .name { font-size: 24px; margin-bottom: 10px; }
+    .title { 
+      background: #2b2b2c; 
+      font-size: 12px; 
+      padding: 5px 15px; 
+      border-radius: 8px; 
+      display: inline-block;
+    }
+
+    .contacts-list { list-style: none; margin-top: 30px; text-align: left; }
+    .contact-item { margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+    .icon-box { 
+      background: #2b2b2c; 
+      width: 40px; 
+      height: 40px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      border-radius: 10px; 
+      color: var(--accent-gold);
+    }
+    .contact-title { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+    .contact-link, address { font-size: 13px; color: var(--text-white); font-style: normal; text-decoration: none; }
+
+    /* MAIN CONTENT */
+    .main-content {
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 30px;
+      position: relative;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #2b2b2c;
+      border: 1px solid var(--border-color);
+      border-radius: 0 20px 0 20px;
+      padding: 15px 30px;
+    }
+    .navbar-list { display: flex; gap: 20px; list-style: none; }
+    .navbar-link { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 700; }
+    .navbar-link:hover { color: var(--accent-gold); }
+
+    .article-title { font-size: 32px; margin-bottom: 20px; }
+    .article-title::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 5px;
+      background: var(--accent-gold);
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    .section-title { margin: 40px 0 20px; }
+
+    /* BENTO CARDS */
+    .service-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .service-item {
+      background: linear-gradient(to bottom right, #2b2b2c 0%, #1e1e1f 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 25px;
+      display: flex;
+      gap: 15px;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+    }
+
+    .service-item:hover {
+      transform: scale(1.03) translateY(-5px);
+      border-color: var(--accent-gold);
+    }
+
+    .service-icon-box img { width: 40px; }
+    .service-item-title { margin-bottom: 10px; }
+    .service-item-text { font-size: 14px; color: var(--text-muted); }
+
+    /* PROJECT GRID */
+    .project-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      list-style: none;
+    }
+    .project-img {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .project-img:hover { transform: scale(1.03); border-color: var(--accent-gold); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .main-container { flex-direction: column; align-items: center; }
+      .sidebar { width: 100%; position: relative; top: 0; margin-bottom: 30px; }
+      .service-list, .project-list { grid-template-columns: 1fr; }
+      .navbar { position: fixed; bottom: 0; top: auto; left: 0; right: 0; border-radius: 20px 20px 0 0; width: 100%; z-index: 10; display: flex; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
 <main class="main-container">
-  <aside class="sidebar" data-aos="fade-right">
+  <aside class="sidebar">
     <div class="sidebar-info">
       <figure class="avatar-box">
         <img src="assets/images/headshot.jpg" alt="Nikhil Dhokare">
       </figure>
-      <div class="info-content">
-        <h1 class="name">Nikhil Dhokare</h1>
-        <p class="title">Animation Student</p>
-      </div>
+      <h1 class="name">Nikhil Dhokare</h1>
+      <p class="title">Animation Student</p>
     </div>
-
-    <div class="separator"></div>
 
     <ul class="contacts-list">
       <li class="contact-item">
@@ -36,45 +203,39 @@
         <li><a href="#about" class="navbar-link">About</a></li>
         <li><a href="#skill" class="navbar-link">Skills</a></li>
         <li><a href="#portfolio" class="navbar-link">Portfolio</a></li>
-        <li><a href="#journey" class="navbar-link">Journey</a></li>
       </ul>
     </nav>
 
-    <article class="content-section">
-      <header>
-        <h2 class="h2 article-title">About Me</h2>
-      </header>
-      <section class="about-text" id="about">
-        <p>I am a beginner animation student driven by curiosity and a deep interest in how visuals communicate emotions. I focus on timing, spacing, and storytelling.</p>
-      </section>
+    <article>
+      <header><h2 class="article-title">About Me</h2></header>
+      <p id="about">I am a beginner animation student driven by curiosity and a deep interest in how visuals communicate emotions. I focus on timing, spacing, and storytelling.</p>
 
-      <section class="service" id="skill">
-        <h3 class="h3 service-title">What I'm Doing</h3>
-        <ul class="service-list">
-          <li class="service-item spring-card">
-            <div class="service-icon-box"><img src="assets/images/photoshop.png" width="40"></div>
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Visual Design</h4>
-              <p class="service-item-text">Image editing and layouts using Adobe Photoshop.</p>
-            </div>
-          </li>
-          <li class="service-item spring-card">
-            <div class="service-icon-box"><img src="assets/images/illustrator.png" width="40"></div>
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Vector Illustration</h4>
-              <p class="service-item-text">Creating assets and icons in Adobe Illustrator.</p>
-            </div>
-          </li>
-        </ul>
-      </section>
+      <h3 class="section-title" id="skill">What I'm Doing</h3>
+      <ul class="service-list">
+        <li class="service-item">
+          <div class="service-icon-box"><img src="assets/images/photoshop.png" alt="PS"></div>
+          <div class="service-content">
+            <h4 class="service-item-title">Visual Design</h4>
+            <p class="service-item-text">Image editing and layouts using Adobe Photoshop.</p>
+          </div>
+        </li>
+        <li class="service-item">
+          <div class="service-icon-box"><img src="assets/images/illustrator.png" alt="AI"></div>
+          <div class="service-content">
+            <h4 class="service-item-title">Vector Illustration</h4>
+            <p class="service-item-text">Creating assets and icons in Adobe Illustrator.</p>
+          </div>
+        </li>
+      </ul>
 
-      <section class="projects" id="portfolio">
-        <h3 class="h3 service-title">Practice Projects</h3>
-        <div class="project-list">
-           <div class="project-item spring-card"><img src="assets/images/project-one.jpg"></div>
-           <div class="project-item spring-card"><img src="assets/images/project-two.jpg"></div>
-        </div>
-      </section>
+      <h3 class="section-title" id="portfolio">Practice Projects</h3>
+      <ul class="project-list">
+        <li><img src="assets/images/project-one.jpg" class="project-img"></li>
+        <li><img src="assets/images/project-two.jpg" class="project-img"></li>
+      </ul>
     </article>
   </div>
 </main>
+
+</body>
+</html>
