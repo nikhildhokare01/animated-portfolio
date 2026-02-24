@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nikhil Dhokare | Animation Portfolio</title>
+  <title>Nikhil Dhokare | Animation & Visual Designer</title>
   <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -15,7 +15,7 @@
       --text-muted: #d6d6d6;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; } /* Hide default cursor for custom one */
 
     body {
       background-color: var(--bg-color);
@@ -25,6 +25,17 @@
       display: flex;
       justify-content: center;
       padding: 60px 20px;
+    }
+
+    /* CUSTOM CURSOR */
+    #cursor {
+      width: 20px; height: 20px;
+      border: 2px solid var(--accent-gold);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease;
     }
 
     .main-container {
@@ -47,37 +58,14 @@
       text-align: center;
     }
 
-    .avatar-box {
-      background: #383838;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
+    .avatar-box { background: #383838; border-radius: 20px; margin-bottom: 20px; overflow: hidden; }
     .avatar-box img { width: 100%; display: block; }
+    .name { font-size: 22px; margin-bottom: 10px; }
+    .title { background: #2b2b2c; font-size: 11px; padding: 5px 12px; border-radius: 8px; display: inline-block; color: var(--accent-gold); }
 
-    .name { font-size: 24px; margin-bottom: 10px; }
-    .title { 
-      background: #2b2b2c; 
-      font-size: 12px; 
-      padding: 5px 15px; 
-      border-radius: 8px; 
-      display: inline-block;
-    }
-
-    .contacts-list { list-style: none; margin-top: 30px; text-align: left; }
-    .contact-item { margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
-    .icon-box { 
-      background: #2b2b2c; 
-      width: 40px; 
-      height: 40px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      border-radius: 10px; 
-      color: var(--accent-gold);
-    }
-    .contact-title { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
-    .contact-link, address { font-size: 13px; color: var(--text-white); font-style: normal; text-decoration: none; }
+    .contacts-list { list-style: none; margin-top: 30px; text-align: left; border-top: 1px solid var(--border-color); padding-top: 20px; }
+    .contact-item { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
+    .icon-box { background: #2b2b2c; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 14px; }
 
     /* MAIN CONTENT */
     .main-content {
@@ -85,157 +73,170 @@
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 30px;
+      padding: 40px;
       position: relative;
     }
 
     .navbar {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 0; right: 0;
       background: #2b2b2c;
       border: 1px solid var(--border-color);
       border-radius: 0 20px 0 20px;
       padding: 15px 30px;
+      z-index: 10;
     }
     .navbar-list { display: flex; gap: 20px; list-style: none; }
-    .navbar-link { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 700; }
-    .navbar-link:hover { color: var(--accent-gold); }
+    .navbar-link { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 700; transition: 0.3s; }
+    .navbar-link:hover, .navbar-link.active { color: var(--accent-gold); }
 
-    .article-title { font-size: 32px; margin-bottom: 20px; }
-    .article-title::after {
-      content: "";
-      display: block;
-      width: 40px;
-      height: 5px;
-      background: var(--accent-gold);
-      margin-top: 10px;
-      border-radius: 5px;
-    }
+    .content-section { display: none; animation: fadeIn 0.5s ease forwards; }
+    .content-section.active { display: block; }
 
-    .section-title { margin: 40px 0 20px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* BENTO CARDS */
-    .service-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      list-style: none;
-    }
+    .h2 { font-size: 32px; margin-bottom: 25px; position: relative; padding-bottom: 15px; }
+    .h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 40px; height: 5px; background: var(--accent-gold); border-radius: 3px; }
 
-    .service-item {
+    /* BENTO GRIDS */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; list-style: none; margin: 25px 0; }
+    .card {
       background: linear-gradient(to bottom right, #2b2b2c 0%, #1e1e1f 100%);
       border: 1px solid var(--border-color);
       border-radius: 14px;
-      padding: 25px;
-      display: flex;
-      gap: 15px;
-      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      cursor: pointer;
-    }
-
-    .service-item:hover {
-      transform: scale(1.03) translateY(-5px);
-      border-color: var(--accent-gold);
-    }
-
-    .service-icon-box img { width: 40px; }
-    .service-item-title { margin-bottom: 10px; }
-    .service-item-text { font-size: 14px; color: var(--text-muted); }
-
-    /* PROJECT GRID */
-    .project-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      list-style: none;
-    }
-    .project-img {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid var(--border-color);
+      padding: 20px;
       transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    .project-img:hover { transform: scale(1.03); border-color: var(--accent-gold); }
+    .card:hover { transform: scale(1.02) translateY(-5px); border-color: var(--accent-gold); }
+
+    /* TIMELINE */
+    .timeline-list { list-style: none; border-left: 1px solid var(--border-color); margin-left: 10px; padding-left: 20px; }
+    .timeline-item { position: relative; margin-bottom: 30px; }
+    .timeline-item::before { content: ""; position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; background: var(--accent-gold); border-radius: 50%; box-shadow: 0 0 0 4px #2b2b2c; }
 
     /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .main-container { flex-direction: column; align-items: center; }
-      .sidebar { width: 100%; position: relative; top: 0; margin-bottom: 30px; }
-      .service-list, .project-list { grid-template-columns: 1fr; }
-      .navbar { position: fixed; bottom: 0; top: auto; left: 0; right: 0; border-radius: 20px 20px 0 0; width: 100%; z-index: 10; display: flex; justify-content: center; }
+    @media (max-width: 950px) {
+      .main-container { flex-direction: column; }
+      .sidebar { width: 100%; position: relative; top: 0; }
+      .grid { grid-template-columns: 1fr; }
+      .navbar { position: fixed; bottom: 0; top: auto; left: 0; border-radius: 20px 20px 0 0; width: 100%; display: flex; justify-content: center; }
     }
   </style>
 </head>
 <body>
 
+<div id="cursor"></div>
+
 <main class="main-container">
   <aside class="sidebar">
-    <div class="sidebar-info">
-      <figure class="avatar-box">
-        <img src="assets/images/headshot.jpg" alt="Nikhil Dhokare">
-      </figure>
-      <h1 class="name">Nikhil Dhokare</h1>
-      <p class="title">Animation Student</p>
-    </div>
-
+    <div class="avatar-box"><img src="assets/images/headshot.jpg" alt="Nikhil"></div>
+    <h1 class="name">Nikhil Dhokare</h1>
+    <p class="title">Animation Student</p>
+    
     <ul class="contacts-list">
-      <li class="contact-item">
-        <div class="icon-box">✉️</div>
-        <div class="contact-info">
-          <p class="contact-title">Email</p>
-          <a href="mailto:nikhil.dhokare7@gmail.com" class="contact-link">nikhil.dhokare7@gmail.com</a>
-        </div>
-      </li>
-      <li class="contact-item">
-        <div class="icon-box">📍</div>
-        <div class="contact-info">
-          <p class="contact-title">Location</p>
-          <address>Pune, India</address>
-        </div>
-      </li>
+      <li class="contact-item"><div class="icon-box">✉️</div><div><p class="contact-title">Email</p><a href="mailto:nikhil.dhokare7@gmail.com" class="contact-link">nikhil.dhokare7@gmail.com</a></div></li>
+      <li class="contact-item"><div class="icon-box">📱</div><div><p class="contact-title">Phone</p><p class="contact-link">+91 1234567890</p></div></li>
+      <li class="contact-item"><div class="icon-box">📍</div><div><p class="contact-title">Location</p><address>Pune, Maharashtra</address></div></li>
     </ul>
   </aside>
 
   <div class="main-content">
     <nav class="navbar">
       <ul class="navbar-list">
-        <li><a href="#about" class="navbar-link">About</a></li>
-        <li><a href="#skill" class="navbar-link">Skills</a></li>
+        <li><a href="#about" class="navbar-link active">About</a></li>
+        <li><a href="#skills" class="navbar-link">Skills</a></li>
         <li><a href="#portfolio" class="navbar-link">Portfolio</a></li>
+        <li><a href="#stopmotion" class="navbar-link">Short Film</a></li>
+        <li><a href="#journey" class="navbar-link">Journey</a></li>
       </ul>
     </nav>
 
-    <article>
-      <header><h2 class="article-title">About Me</h2></header>
-      <p id="about">I am a beginner animation student driven by curiosity and a deep interest in how visuals communicate emotions. I focus on timing, spacing, and storytelling.</p>
+    <section id="about" class="content-section active">
+      <h2 class="h2">About Me</h2>
+      <p>I am a beginner animation student driven by curiosity and a deep interest in how visuals communicate emotions and stories. My focus is on timing, spacing, and visual balance.</p>
+      <p style="margin-top: 15px;">Currently, I am exploring the intersection of traditional motion principles and modern digital design.</p>
+      
+      <h3 style="margin-top: 30px;">What I Do</h3>
+      <div class="grid">
+        <div class="card"><h4>Visual Design</h4><p>Creating layouts and image editing in Photoshop.</p></div>
+        <div class="card"><h4>Motion Graphics</h4><p>Exploring timing and storytelling through movement.</p></div>
+      </div>
+    </section>
 
-      <h3 class="section-title" id="skill">What I'm Doing</h3>
-      <ul class="service-list">
-        <li class="service-item">
-          <div class="service-icon-box"><img src="assets/images/photoshop.png" alt="PS"></div>
-          <div class="service-content">
-            <h4 class="service-item-title">Visual Design</h4>
-            <p class="service-item-text">Image editing and layouts using Adobe Photoshop.</p>
-          </div>
-        </li>
-        <li class="service-item">
-          <div class="service-icon-box"><img src="assets/images/illustrator.png" alt="AI"></div>
-          <div class="service-content">
-            <h4 class="service-item-title">Vector Illustration</h4>
-            <p class="service-item-text">Creating assets and icons in Adobe Illustrator.</p>
-          </div>
-        </li>
-      </ul>
+    <section id="skills" class="content-section">
+      <h2 class="h2">Skills & Tools</h2>
+      <div class="grid">
+        <div class="card"><h4>Adobe Suite</h4><p>Photoshop, Illustrator, InDesign.</p></div>
+        <div class="card"><h4>Development</h4><p>HTML, CSS, and basic React/Vite deployment.</p></div>
+        <div class="card"><h4>Tech Optimization</h4><p>Hardware optimization for design workflows (Moto G96).</p></div>
+        <div class="card"><h4>Artistic Sense</h4><p>Composition, color theory, and lighting.</p></div>
+      </div>
+    </section>
 
-      <h3 class="section-title" id="portfolio">Practice Projects</h3>
-      <ul class="project-list">
-        <li><img src="assets/images/project-one.jpg" class="project-img"></li>
-        <li><img src="assets/images/project-two.jpg" class="project-img"></li>
+    <section id="portfolio" class="content-section">
+      <h2 class="h2">Portfolio</h2>
+      <div class="grid">
+        <div class="card"><img src="assets/images/project-one.jpg" style="width: 100%; border-radius: 8px;"><h4>Project Alpha</h4></div>
+        <div class="card"><img src="assets/images/project-two.jpg" style="width: 100%; border-radius: 8px;"><h4>Project Beta</h4></div>
+      </div>
+    </section>
+
+    <section id="stopmotion" class="content-section">
+      <h2 class="h2">Stop-Motion Short Film</h2>
+      <div class="card" style="margin-top: 20px;">
+        <p>I am currently producing a stop-motion short film, focusing on meticulous frame-by-frame storytelling and physical prop design.</p>
+        <ul style="margin: 15px 0 0 20px;">
+          <li>Concept Development</li>
+          <li>Set Construction</li>
+          <li>Frame-by-Frame Animation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="journey" class="content-section">
+      <h2 class="h2">My Journey</h2>
+      <ul class="timeline-list">
+        <li class="timeline-item"><h4>Animation Basics (2025)</h4><p>Started with design principles and visual observation.</p></li>
+        <li class="timeline-item"><h4>Motion Principles (2026)</h4><p>Diving deep into timing, spacing, and storytelling.</p></li>
       </ul>
-    </article>
+    </section>
+
   </div>
 </main>
+
+<script>
+  // SECTION SWITCHING (PAGE LOGIC)
+  const links = document.querySelectorAll('.navbar-link');
+  const sections = document.querySelectorAll('.content-section');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = this.getAttribute('href').substring(1);
+
+      links.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+
+      sections.forEach(s => {
+        s.classList.remove('active');
+        if(s.id === target) s.classList.add('active');
+      });
+    });
+  });
+
+  // CUSTOM CURSOR LOGIC
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  
+  // Cursor scaling on hover
+  document.querySelectorAll('a, .card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(2)');
+    el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+  });
+</script>
 
 </body>
 </html>
